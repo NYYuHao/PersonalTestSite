@@ -22,8 +22,8 @@ h1 {
   width: 500px;
   height: 500px;
   overflow: hidden;
-  background: rgb(9, 75, 4);
-  background: linear-gradient(0deg, rgb(9, 75, 4) 0%, rgb(0, 122, 146) 100%);
+  background: #004adf;
+  background: linear-gradient(0deg, #004adf 0%, rgba(255, 255, 255, 0.1) 100%);
 }
 .card img {
   position: relative;
@@ -36,7 +36,7 @@ h1 {
 }
 .card:hover img {
   transform: translate(-25px, 0);
-  opacity: 50%;
+  opacity: 60%;
   transition: transform ease-in-out 0.25s, opacity ease-in-out 0.25s;
 }
 .card::before, .card::after, .card span::before, .card span::after {

@@ -24,8 +24,8 @@ h1 {
     width: 500px;
     height: 500px;
     overflow: hidden;  
-    background: rgb(9, 75, 4);
-    background: linear-gradient(0deg, rgb(9, 75, 4) 0%, rgb(0, 122, 146) 100%); 
+    background: $primary-color;
+    background: linear-gradient(0deg, $primary-color 0%, rgb(255, 255, 255, 0.1) 100%); 
 
     img {
         position: relative;
@@ -38,7 +38,7 @@ h1 {
 
     &:hover img {
         transform: translate(-25px, 0);
-        opacity: 50%;
+        opacity: 60%;
         transition: transform ease-in-out 0.25s, opacity ease-in-out 0.25s;
     }
 
