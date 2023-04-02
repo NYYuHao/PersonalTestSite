@@ -1,0 +1,100 @@
+body {
+  font-family: "Libre Franklin";
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  overflow: hidden;
+  background: rgb(17, 150, 7);
+  background: linear-gradient(0deg, rgb(17, 150, 7) 0%, rgb(0, 212, 255) 100%);
+}
+.card img {
+  position: relative;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 525px;
+  height: 525px;
+  opacity: 80%;
+  transition: transform ease-in-out 0.25s, opacity ease-in-out 0.25s;
+}
+.card:hover img {
+  transform: translate(-25px, 0);
+  opacity: 100%;
+  transition: transform ease-in-out 0.25s, opacity ease-in-out 0.25s;
+}
+.card::before, .card::after, .card span::before, .card span::after {
+  display: inline-block;
+  position: absolute;
+  content: "";
+  border: 2px solid white;
+  z-index: 1;
+  transform: scale(0);
+  transition: transform 0.25s;
+}
+.card::before {
+  top: 5%;
+  bottom: 60%;
+  left: 5%;
+  right: 60%;
+  border-width: 2px 0px 0px 2px;
+  transform-origin: top left;
+}
+.card::after {
+  top: 60%;
+  bottom: 5%;
+  left: 5%;
+  right: 60%;
+  border-width: 0px 0px 2px 2px;
+  transform-origin: bottom left;
+}
+.card span::before {
+  top: 5%;
+  bottom: 60%;
+  left: 60%;
+  right: 5%;
+  border-width: 2px 2px 0px 0px;
+  transform-origin: top right;
+}
+.card span::after {
+  top: 60%;
+  bottom: 5%;
+  left: 60%;
+  right: 5%;
+  border-width: 0px 2px 2px 0px;
+  transform-origin: bottom right;
+}
+.card:hover::before, .card:hover::after, .card:hover span::before, .card:hover span::after {
+  transform: scale(1);
+  animation: 0.5s forwards 0.35s border-blink step-start;
+}
+
+@keyframes border-blink {
+  from {
+    border-color: white;
+  }
+  25% {
+    border-color: transparent;
+  }
+  30% {
+    border-color: white;
+  }
+  55% {
+    border-color: transparent;
+  }
+  60% {
+    border-color: white;
+  }
+}
