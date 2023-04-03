@@ -1,0 +1,24 @@
+.transition-fade {
+    opacity: 1;
+    transition: .25s
+}
+
+html.is-animating .transition-fade {
+    opacity: 0;
+}
+
+
+.transition-card {
+    opacity: 1;
+    transition: .25s;
+}
+
+html.is-animating .transition-card {
+    transform: translate(0, -10px) scale(105%);
+    opacity: 0;
+}
+
+html.is-leaving .transition-card {
+    transform: translate(0, 0) scale(100%);
+    opacity: 0;
+}

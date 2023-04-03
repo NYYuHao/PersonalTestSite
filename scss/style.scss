@@ -1,9 +1,31 @@
 @import 'colors';
+@import 'pagetransitions';
 
 body {
     font-family: 'Raleway', Arial, sans-serif;
     background-color: $bg-color;
     color: $primary-font-color;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 200px;
+    max-width: 300px;
+    font-size: 20px;
+
+    a {
+        margin: 10px;
+        color: rgb(184, 184, 184);
+        text-decoration: none;
+        transition: color .25s;
+    }
+
+    
+    a.current-link {
+        color: #ffffff
+    }
 }
 
 h1 {
@@ -12,12 +34,16 @@ h1 {
 }
 
 .container {
-    margin: 0 auto;
+    margin: 50px auto;
     display: flex;
     justify-content: space-evenly;
     gap: 20px;
     flex-wrap: wrap;
 }
+
+//
+// Images in cards on front page
+//
 
 .card {
     position: relative;
