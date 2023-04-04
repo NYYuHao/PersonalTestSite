@@ -85,13 +85,7 @@ html.to-test .bg.bottomright {
   transition: top 0.25s ease-in-out, left 0.25s ease-in-out;
 }
 
-html {
-  height: 100%;
-  margin: 0;
-}
-
 body {
-  height: 100%;
   font-family: "Raleway", Arial, sans-serif;
   background-color: #303030;
   color: #ffffff;
@@ -140,14 +134,14 @@ h1 {
 }
 
 .bg {
-  height: 100%;
-  width: 100%;
+  height: 100svh;
+  width: 100svw;
   position: fixed;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   filter: grayscale(100%);
-  opacity: 20%;
+  opacity: 10%;
   background-attachment: fixed;
   z-index: -10;
   border: solid rgb(255, 255, 255);

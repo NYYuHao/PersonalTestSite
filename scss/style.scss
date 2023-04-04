@@ -1,13 +1,7 @@
-@import 'colors';
+@import 'config';
 @import 'pagetransitions';
 
-html {
-    height: 100%;
-    margin: 0;
-}
-
 body {
-    height: 100%;
     font-family: 'Raleway', Arial, sans-serif;
     background-color: $bg-color;
     color: $primary-font-color;
@@ -63,14 +57,14 @@ h1 {
 ///
 
 .bg {
-    height: 100%;
-    width: 100%;
+    height: 100svh;
+    width: 100svw;
     position: fixed;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     filter: grayscale(100%);
-    opacity: 20%;
+    opacity: 10%;
     background-attachment: fixed;
     z-index: -10;
     border: solid rgb(255, 255, 255);
@@ -80,30 +74,30 @@ h1 {
 .bg.topleft {
     background-image: url('https://i.redd.it/18kn0u61tmfa1.png');
     border-width: 0px 2px 2px 0px;
-    &.index { bottom: 7%; right: 7%; }
-    &.about { bottom: 93%; right: 7%; }
-    &.test { bottom: 93%; right: 93%; }
+    &.index { bottom:   $bg-h-default;  right: $bg-w-default; }
+    &.about { bottom:   $bg-h-opposite; right: $bg-w-default; }
+    &.test { bottom:    $bg-h-opposite; right: $bg-w-opposite; }
 }
 .bg.topright {
     background-image: url('https://i.redd.it/vzmwjf4rl5s51.jpg');
     border-width: 0px 0px 2px 2px;
-    &.index { bottom: 7%; left: 93%; }
-    &.about { bottom: 93%; left: 93%; }
-    &.test { bottom: 93%; left: 7%; }
+    &.index {   bottom: $bg-h-default;  left: $bg-w-opposite; }
+    &.about {   bottom: $bg-h-opposite; left: $bg-w-opposite; }
+    &.test {    bottom: $bg-h-opposite; left: $bg-w-default; }
 }
 .bg.bottomleft {
     background-image: url('https://i.redd.it/qqn79szv7z961.jpg');
     border-width: 2px 2px 0px 0px;
-    &.index { top: 93%; right: 7%; }
-    &.about { top: 7%; right: 7%; }
-    &.test { top: 7%; right: 93%; }
+    &.index {   top: $bg-h-opposite;   right: $bg-w-default; }
+    &.about {   top: $bg-h-default;    right: $bg-w-default; }
+    &.test {    top: $bg-h-default;    right: $bg-w-opposite; }
 }
 .bg.bottomright {
     background-image: url('https://i.redd.it/aer4hb9drh331.png');
     border-width: 2px 0px 0px 2px;
-    &.index { top: 93%; left: 93%; }
-    &.about { top: 7%; left: 93%; }
-    &.test { top: 7%; left: 7%; }
+    &.index {   top: $bg-h-opposite;   left: $bg-w-opposite; }
+    &.about {   top: $bg-h-default;    left: $bg-w-opposite; }
+    &.test {    top: $bg-h-default;    left: $bg-w-default; }
 }  
 
 
