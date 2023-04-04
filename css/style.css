@@ -22,10 +22,80 @@ html.is-leaving .transition-card {
   opacity: 0;
 }
 
+html.to-index .bg.topleft {
+  bottom: 7%;
+  right: 7%;
+  transition: bottom 0.25s ease-in-out, right 0.25s ease-in-out;
+}
+html.to-index .bg.topright {
+  bottom: 7%;
+  left: 93%;
+  transition: bottom 0.25s ease-in-out, left 0.25s ease-in-out;
+}
+html.to-index .bg.bottomleft {
+  top: 93%;
+  right: 7%;
+  transition: top 0.25s ease-in-out, right 0.25s ease-in-out;
+}
+html.to-index .bg.bottomright {
+  top: 93%;
+  left: 93%;
+  transition: top 0.25s ease-in-out, left 0.25s ease-in-out;
+}
+
+html.to-about .bg.topleft {
+  bottom: 93%;
+  right: 7%;
+  transition: bottom 0.25s ease-in-out, right 0.25s ease-in-out;
+}
+html.to-about .bg.topright {
+  bottom: 93%;
+  left: 93%;
+  transition: bottom 0.25s ease-in-out, left 0.25s ease-in-out;
+}
+html.to-about .bg.bottomleft {
+  top: 7%;
+  right: 7%;
+  transition: top 0.25s ease-in-out, right 0.25s ease-in-out;
+}
+html.to-about .bg.bottomright {
+  top: 7%;
+  left: 93%;
+  transition: top 0.25s ease-in-out, left 0.25s ease-in-out;
+}
+
+html.to-test .bg.topleft {
+  bottom: 93%;
+  right: 93%;
+  transition: bottom 0.25s ease-in-out, right 0.25s ease-in-out;
+}
+html.to-test .bg.topright {
+  bottom: 93%;
+  left: 7%;
+  transition: bottom 0.25s ease-in-out, left 0.25s ease-in-out;
+}
+html.to-test .bg.bottomleft {
+  top: 7%;
+  right: 93%;
+  transition: top 0.25s ease-in-out, right 0.25s ease-in-out;
+}
+html.to-test .bg.bottomright {
+  top: 7%;
+  left: 7%;
+  transition: top 0.25s ease-in-out, left 0.25s ease-in-out;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+}
+
 body {
+  height: 100%;
   font-family: "Raleway", Arial, sans-serif;
   background-color: #303030;
   color: #ffffff;
+  margin: 0;
 }
 
 nav {
@@ -35,6 +105,8 @@ nav {
   right: 200px;
   max-width: 300px;
   font-size: 20px;
+  padding: 20px;
+  z-index: 1;
 }
 nav a {
   margin: 10px;
@@ -46,9 +118,17 @@ nav a.current-link {
   color: #ffffff;
 }
 
+main {
+  height: 100%;
+  margin: 0;
+  position: relative;
+}
+
 h1 {
   display: flex;
   justify-content: center;
+  margin: 0;
+  padding: 20px;
 }
 
 .container {
@@ -59,13 +139,96 @@ h1 {
   flex-wrap: wrap;
 }
 
+.bg {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: grayscale(100%);
+  opacity: 20%;
+  background-attachment: fixed;
+  z-index: -10;
+  border: solid rgb(255, 255, 255);
+  transition: bottom 0.25s ease;
+}
+
+.bg.topleft {
+  background-image: url("https://i.redd.it/18kn0u61tmfa1.png");
+  border-width: 0px 2px 2px 0px;
+}
+.bg.topleft.index {
+  bottom: 7%;
+  right: 7%;
+}
+.bg.topleft.about {
+  bottom: 93%;
+  right: 7%;
+}
+.bg.topleft.test {
+  bottom: 93%;
+  right: 93%;
+}
+
+.bg.topright {
+  background-image: url("https://i.redd.it/vzmwjf4rl5s51.jpg");
+  border-width: 0px 0px 2px 2px;
+}
+.bg.topright.index {
+  bottom: 7%;
+  left: 93%;
+}
+.bg.topright.about {
+  bottom: 93%;
+  left: 93%;
+}
+.bg.topright.test {
+  bottom: 93%;
+  left: 7%;
+}
+
+.bg.bottomleft {
+  background-image: url("https://i.redd.it/qqn79szv7z961.jpg");
+  border-width: 2px 2px 0px 0px;
+}
+.bg.bottomleft.index {
+  top: 93%;
+  right: 7%;
+}
+.bg.bottomleft.about {
+  top: 7%;
+  right: 7%;
+}
+.bg.bottomleft.test {
+  top: 7%;
+  right: 93%;
+}
+
+.bg.bottomright {
+  background-image: url("https://i.redd.it/aer4hb9drh331.png");
+  border-width: 2px 0px 0px 2px;
+}
+.bg.bottomright.index {
+  top: 93%;
+  left: 93%;
+}
+.bg.bottomright.about {
+  top: 7%;
+  left: 93%;
+}
+.bg.bottomright.test {
+  top: 7%;
+  left: 7%;
+}
+
 .card {
   position: relative;
   width: 500px;
   height: 500px;
   overflow: hidden;
   background: #004adf;
-  background: linear-gradient(0deg, #004adf 0%, rgba(255, 255, 255, 0.1) 100%);
+  background: linear-gradient(0deg, #004adf 0%, rgb(68, 68, 68) 100%);
 }
 .card img {
   position: relative;

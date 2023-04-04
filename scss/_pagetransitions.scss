@@ -22,3 +22,74 @@ html.is-leaving .transition-card {
     transform: translate(0, 0) scale(100%);
     opacity: 0;
 }
+
+///
+/// Background Animations
+/// 
+
+html.to-index {
+    .bg.topleft {
+        bottom: 7%;
+        right: 7%;
+        transition: bottom .25s ease-in-out, right .25s ease-in-out;
+    }
+    .bg.topright {
+        bottom: 7%;
+        left: 93%;
+        transition: bottom .25s ease-in-out, left .25s ease-in-out;
+    }
+    .bg.bottomleft {
+        top: 93%; 
+        right: 7%;
+        transition: top .25s ease-in-out, right .25s ease-in-out;
+    }
+    .bg.bottomright {
+        top: 93%;
+        left: 93%;
+        transition: top .25s ease-in-out, left .25s ease-in-out;
+    }
+}
+html.to-about {
+    .bg.topleft {
+        bottom: 93%;
+        right: 7%;
+        transition: bottom .25s ease-in-out, right .25s ease-in-out;
+    }
+    .bg.topright {
+        bottom: 93%;
+        left: 93%;
+        transition: bottom .25s ease-in-out, left .25s ease-in-out;
+    }
+    .bg.bottomleft {
+        top: 7%;
+        right: 7%;
+        transition: top .25s ease-in-out, right .25s ease-in-out;
+    }
+    .bg.bottomright {
+        top: 7%;
+        left: 93%;
+        transition: top .25s ease-in-out, left .25s ease-in-out;
+    }
+}
+html.to-test {
+    .bg.topleft {
+        bottom: 93%;
+        right: 93%;
+        transition: bottom .25s ease-in-out, right .25s ease-in-out;
+    }
+    .bg.topright {
+        bottom: 93%;
+        left: 7%;
+        transition: bottom .25s ease-in-out, left .25s ease-in-out;
+    }
+    .bg.bottomleft {
+        top: 7%;
+        right: 93%;
+        transition: top .25s ease-in-out, right .25s ease-in-out;
+    }
+    .bg.bottomright {
+        top: 7%;
+        left: 7%;
+        transition: top .25s ease-in-out, left .25s ease-in-out;
+    }
+}

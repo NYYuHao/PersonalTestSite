@@ -11,12 +11,19 @@
 </head>
 <body>
     <nav id="navbar">
-        <a onClick="navBarLinkClicked(this)" href="index.html">Home</a>
-        <a onClick="navBarLinkClicked(this)" class="current-link" href="about.html">About</a>
-        <a onClick="navBarLinkClicked(this)" href="test.html">Test</a>
+        <a onClick="navBarLinkClicked(this)" href="index.html" data-swup-transition="index">Home</a>
+        <a onClick="navBarLinkClicked(this)" class="current-link" href="about.html" data-swup-transition="about">About</a>
+        <a onClick="navBarLinkClicked(this)" href="test.html" data-swup-transition="test">Test</a>
     </nav>
     
     <main id="swup">
+        <div class="backgrounds transition-background">
+            <div class="bg topleft about"></div>
+            <div class="bg topright about"></div>
+            <div class="bg bottomleft about"></div>
+            <div class="bg bottomright about"></div>
+        </div>
+
         <h1 class="transition-fade">About</h1>
         
         <div class="container">

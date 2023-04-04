@@ -1,10 +1,17 @@
 @import 'colors';
 @import 'pagetransitions';
 
+html {
+    height: 100%;
+    margin: 0;
+}
+
 body {
+    height: 100%;
     font-family: 'Raleway', Arial, sans-serif;
     background-color: $bg-color;
     color: $primary-font-color;
+    margin: 0;
 }
 
 nav {
@@ -14,6 +21,8 @@ nav {
     right: 200px;
     max-width: 300px;
     font-size: 20px;
+    padding: 20px;
+    z-index: 1;
 
     a {
         margin: 10px;
@@ -28,9 +37,17 @@ nav {
     }
 }
 
+main {
+    height: 100%;
+    margin: 0;
+    position: relative;
+}
+
 h1 {
     display: flex;
     justify-content: center;
+    margin: 0;
+    padding: 20px;
 }
 
 .container {
@@ -41,9 +58,58 @@ h1 {
     flex-wrap: wrap;
 }
 
-//
-// Images in cards on front page
-//
+///
+/// Background images, used for transitions to different pages
+///
+
+.bg {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: grayscale(100%);
+    opacity: 20%;
+    background-attachment: fixed;
+    z-index: -10;
+    border: solid rgb(255, 255, 255);
+    transition: bottom .25s ease;
+}
+
+.bg.topleft {
+    background-image: url('https://i.redd.it/18kn0u61tmfa1.png');
+    border-width: 0px 2px 2px 0px;
+    &.index { bottom: 7%; right: 7%; }
+    &.about { bottom: 93%; right: 7%; }
+    &.test { bottom: 93%; right: 93%; }
+}
+.bg.topright {
+    background-image: url('https://i.redd.it/vzmwjf4rl5s51.jpg');
+    border-width: 0px 0px 2px 2px;
+    &.index { bottom: 7%; left: 93%; }
+    &.about { bottom: 93%; left: 93%; }
+    &.test { bottom: 93%; left: 7%; }
+}
+.bg.bottomleft {
+    background-image: url('https://i.redd.it/qqn79szv7z961.jpg');
+    border-width: 2px 2px 0px 0px;
+    &.index { top: 93%; right: 7%; }
+    &.about { top: 7%; right: 7%; }
+    &.test { top: 7%; right: 93%; }
+}
+.bg.bottomright {
+    background-image: url('https://i.redd.it/aer4hb9drh331.png');
+    border-width: 2px 0px 0px 2px;
+    &.index { top: 93%; left: 93%; }
+    &.about { top: 7%; left: 93%; }
+    &.test { top: 7%; left: 7%; }
+}  
+
+
+///
+/// Images in cards on front page
+///
 
 .card {
     position: relative;
@@ -51,7 +117,7 @@ h1 {
     height: 500px;
     overflow: hidden;  
     background: $primary-color;
-    background: linear-gradient(0deg, $primary-color 0%, rgb(255, 255, 255, 0.1) 100%); 
+    background: linear-gradient(0deg, $primary-color 0%, rgb(68, 68, 68) 100%);
 
     img {
         position: relative;
