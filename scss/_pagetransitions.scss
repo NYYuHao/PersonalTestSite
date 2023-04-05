@@ -1,24 +1,37 @@
-.transition-fade {
-    opacity: 1;
-    transition: .25s
+.transition-main {
+    transition: 1s
 }
 
-html.is-animating .transition-fade {
-    opacity: 0;
-}
-
-
-.transition-card {
+h1 {
     opacity: 1;
     transition: .25s;
 }
 
-html.is-animating .transition-card {
+html.is-animating h1 {
+    opacity: 0;
+}
+
+html.is-changing a {
+    pointer-events: none;
+}
+
+.card {
+    opacity: 1;
+    transition: .25s;
+}
+// Add slight animation delay to cards in order
+@for $i from 1 through 10 {
+    .container .card:nth-child(#{$i}n) {
+        transition-delay: #{$i * 0.05}s;
+    }
+}
+
+html.is-animating .card {
     transform: translate(0, -10px) scale(105%);
     opacity: 0;
 }
 
-html.is-leaving .transition-card {
+html.is-leaving .card {
     transform: translate(0, 0) scale(100%);
     opacity: 0;
 }
@@ -27,69 +40,75 @@ html.is-leaving .transition-card {
 /// Background Animations
 /// 
 
-html.to-index {
+html.is-leaving.to-index {
+    & .bg {animation: .5s forwards .5s border-blink step-start; }
+
     .bg.topleft {
         bottom: $bg-h-default;
         right: $bg-w-default;
-        transition: bottom .25s ease-in-out, right .25s ease-in-out;
+        transition: bottom .4s ease .1s, right .4s ease .1s;
     }
     .bg.topright {
         bottom: $bg-h-default;
         left: $bg-w-opposite;
-        transition: bottom .25s ease-in-out, left .25s ease-in-out;
+        transition: bottom .4s ease .1s, left .4s ease .1s;
     }
     .bg.bottomleft {
         top: $bg-h-opposite; 
         right: $bg-w-default;
-        transition: top .25s ease-in-out, right .25s ease-in-out;
+        transition: top .4s ease .1s, right .4s ease .1s;
     }
     .bg.bottomright {
         top: $bg-h-opposite;
         left: $bg-w-opposite;
-        transition: top .25s ease-in-out, left .25s ease-in-out;
+        transition: top .4s ease .1s, left .4s ease .1s;
     }
 }
-html.to-about {
+html.is-leaving.to-about {
+    & .bg {animation: .5s forwards .5s border-blink step-start; }
+
     .bg.topleft {
         bottom: $bg-h-opposite;
         right: $bg-w-default;
-        transition: bottom .25s ease-in-out, right .25s ease-in-out;
+        transition: bottom .4s ease .1s, right .4s ease .1s;
     }
     .bg.topright {
         bottom: $bg-h-opposite;
         left: $bg-w-opposite;
-        transition: bottom .25s ease-in-out, left .25s ease-in-out;
+        transition: bottom .4s ease .1s, left .4s ease .1s;
     }
     .bg.bottomleft {
         top: $bg-h-default;
         right: $bg-w-default;
-        transition: top .25s ease-in-out, right .25s ease-in-out;
+        transition: top .4s ease .1s, right .4s ease .1s;
     }
     .bg.bottomright {
         top: $bg-h-default;
         left: $bg-w-opposite;
-        transition: top .25s ease-in-out, left .25s ease-in-out;
+        transition: top .4s ease .1s, left .4s ease .1s;
     }
 }
-html.to-test {
+html.is-leaving.to-test {
+    & .bg {animation: .5s forwards .5s border-blink step-start; }
+    
     .bg.topleft {
         bottom: $bg-h-opposite;
         right: $bg-w-opposite;
-        transition: bottom .25s ease-in-out, right .25s ease-in-out;
+        transition: bottom .4s ease .1s, right .4s ease .1s;
     }
     .bg.topright {
         bottom: $bg-h-opposite;
         left: $bg-w-default;
-        transition: bottom .25s ease-in-out, left .25s ease-in-out;
+        transition: bottom .4s ease .1s, left .4s ease .1s;
     }
     .bg.bottomleft {
         top: $bg-h-default;
         right: $bg-w-opposite;
-        transition: top .25s ease-in-out, right .25s ease-in-out;
+        transition: top .4s ease .1s, right .4s ease .1s;
     }
     .bg.bottomright {
         top: $bg-h-default;
         left: $bg-w-default;
-        transition: top .25s ease-in-out, left .25s ease-in-out;
+        transition: top .4s ease .1s, left .4s ease .1s;
     }
 }
