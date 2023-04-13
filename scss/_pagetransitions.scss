@@ -40,75 +40,66 @@ html.is-leaving .card {
 /// Background Animations
 /// 
 
-html.is-leaving.to-index {
-    & .bg {animation: .5s forwards .5s border-blink step-start; }
+html.is-leaving {
+    & .bg-mask {
+        animation: .5s forwards .5s border-blink step-start;
+        transition: inset .4s ease .1s;
+    }
 
-    .bg.topleft {
-        bottom: $bg-h-default;
-        right: $bg-w-default;
-        transition: bottom .4s ease .1s, right .4s ease .1s;
+    &.to-index {
+        .bg-mask.topleft {
+            bottom: $bg-h-default;
+            right: $bg-w-default;
+        }
+        .bg-mask.topright {
+            bottom: $bg-h-default;
+            left: $bg-w-opposite;
+        }
+        .bg-mask.bottomleft {
+            top: $bg-h-opposite; 
+            right: $bg-w-default;
+        }
+        .bg-mask.bottomright {
+            top: $bg-h-opposite;
+            left: $bg-w-opposite;
+        }
     }
-    .bg.topright {
-        bottom: $bg-h-default;
-        left: $bg-w-opposite;
-        transition: bottom .4s ease .1s, left .4s ease .1s;
-    }
-    .bg.bottomleft {
-        top: $bg-h-opposite; 
-        right: $bg-w-default;
-        transition: top .4s ease .1s, right .4s ease .1s;
-    }
-    .bg.bottomright {
-        top: $bg-h-opposite;
-        left: $bg-w-opposite;
-        transition: top .4s ease .1s, left .4s ease .1s;
-    }
-}
-html.is-leaving.to-about {
-    & .bg {animation: .5s forwards .5s border-blink step-start; }
 
-    .bg.topleft {
-        bottom: $bg-h-opposite;
-        right: $bg-w-default;
-        transition: bottom .4s ease .1s, right .4s ease .1s;
+    &.to-about {
+        .bg-mask.topleft {
+            bottom: $bg-h-opposite;
+            right: $bg-w-default;
+        }
+        .bg-mask.topright {
+            bottom: $bg-h-opposite;
+            left: $bg-w-opposite;
+        }
+        .bg-mask.bottomleft {
+            top: $bg-h-default;
+            right: $bg-w-default;
+        }
+        .bg-mask.bottomright {
+            top: $bg-h-default;
+            left: $bg-w-opposite;
+        }
     }
-    .bg.topright {
-        bottom: $bg-h-opposite;
-        left: $bg-w-opposite;
-        transition: bottom .4s ease .1s, left .4s ease .1s;
-    }
-    .bg.bottomleft {
-        top: $bg-h-default;
-        right: $bg-w-default;
-        transition: top .4s ease .1s, right .4s ease .1s;
-    }
-    .bg.bottomright {
-        top: $bg-h-default;
-        left: $bg-w-opposite;
-        transition: top .4s ease .1s, left .4s ease .1s;
-    }
-}
-html.is-leaving.to-test {
-    & .bg {animation: .5s forwards .5s border-blink step-start; }
-    
-    .bg.topleft {
-        bottom: $bg-h-opposite;
-        right: $bg-w-opposite;
-        transition: bottom .4s ease .1s, right .4s ease .1s;
-    }
-    .bg.topright {
-        bottom: $bg-h-opposite;
-        left: $bg-w-default;
-        transition: bottom .4s ease .1s, left .4s ease .1s;
-    }
-    .bg.bottomleft {
-        top: $bg-h-default;
-        right: $bg-w-opposite;
-        transition: top .4s ease .1s, right .4s ease .1s;
-    }
-    .bg.bottomright {
-        top: $bg-h-default;
-        left: $bg-w-default;
-        transition: top .4s ease .1s, left .4s ease .1s;
+
+    &.to-test {
+        .bg-mask.topleft {
+            bottom: $bg-h-opposite;
+            right: $bg-w-opposite;
+        }
+        .bg-mask.topright {
+            bottom: $bg-h-opposite;
+            left: $bg-w-default;
+        }
+        .bg-mask.bottomleft {
+            top: $bg-h-default;
+            right: $bg-w-opposite;
+        }
+        .bg-mask.bottomright {
+            top: $bg-h-default;
+            left: $bg-w-default;
+        }
     }
 }

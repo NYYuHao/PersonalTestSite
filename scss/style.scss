@@ -1,7 +1,12 @@
 @import 'config';
 @import 'pagetransitions';
 
+html {
+    width: 100%;
+}
+
 body {
+    width: 100%;
     font-family: 'Raleway', Arial, sans-serif;
     background-color: $bg-color;
     color: $primary-font-color;
@@ -32,7 +37,6 @@ nav {
 }
 
 main {
-    height: 100%;
     margin: 0;
     position: relative;
 }
@@ -52,13 +56,58 @@ h1 {
     flex-wrap: wrap;
 }
 
+/// 
+/// Background masks, used for transitions to different pages
+/// 
+.backgrounds {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    inset: 0;
+}
+
+.bg-mask {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    mask-image: url("../images/Black.png");
+    mask-repeat: repeat;
+
+    &.topleft {
+        border-width: 0px 2px 2px 0px;
+        &.index { bottom: $bg-h-default;  right: $bg-w-default; }
+        &.about { bottom: $bg-h-opposite; right: $bg-w-default; }
+        &.test  { bottom: $bg-h-opposite; right: $bg-w-opposite; }
+    }
+
+    &.topright {
+        border-width: 0px 0px 2px 2px;
+        &.index { bottom: $bg-h-default;  left: $bg-w-opposite; }
+        &.about { bottom: $bg-h-opposite; left: $bg-w-opposite; }
+        &.test  { bottom: $bg-h-opposite; left: $bg-w-default; }
+    }
+
+    &.bottomleft {
+        border-width: 2px 2px 0px 0px;
+        &.index { top: $bg-h-opposite; right: $bg-w-default; }
+        &.about { top: $bg-h-default;  right: $bg-w-default; }
+        &.test  { top: $bg-h-default;  right: $bg-w-opposite; }
+    }
+
+    &.bottomright {
+        border-width: 2px 0px 0px 2px;
+        &.index { top: $bg-h-opposite; left: $bg-w-opposite; }
+        &.about { top: $bg-h-default;  left: $bg-w-opposite; }
+        &.test  { top: $bg-h-default;  left: $bg-w-default; }
+    }
+}
+
 ///
-/// Background images, used for transitions to different pages
+/// Background images
 ///
 
 .bg {
-    height: 100svh;
-    width: 100svw;
     position: fixed;
     background-position: center center;
     background-repeat: no-repeat;
@@ -67,38 +116,24 @@ h1 {
     opacity: 10%;
     background-attachment: fixed;
     z-index: -10;
-    border: solid rgb(255, 255, 255);
-    transition: bottom .25s ease;
-}
+    inset: 0 0 0 0;
 
-.bg.topleft {
-    background-image: url('https://i.redd.it/18kn0u61tmfa1.png');
-    border-width: 0px 2px 2px 0px;
-    &.index { bottom:   $bg-h-default;  right: $bg-w-default; }
-    &.about { bottom:   $bg-h-opposite; right: $bg-w-default; }
-    &.test { bottom:    $bg-h-opposite; right: $bg-w-opposite; }
+    &.topleft {
+        background-image: url('https://i.redd.it/18kn0u61tmfa1.png');
+    }
+
+    &.topright {
+        background-image: url('https://i.redd.it/vzmwjf4rl5s51.jpg');
+    }
+    
+    &.bottomleft {
+        background-image: url('https://i.redd.it/qqn79szv7z961.jpg');
+    }
+
+    &.bottomright {
+        background-image: url('https://i.redd.it/aer4hb9drh331.png');
+    }
 }
-.bg.topright {
-    background-image: url('https://i.redd.it/vzmwjf4rl5s51.jpg');
-    border-width: 0px 0px 2px 2px;
-    &.index {   bottom: $bg-h-default;  left: $bg-w-opposite; }
-    &.about {   bottom: $bg-h-opposite; left: $bg-w-opposite; }
-    &.test {    bottom: $bg-h-opposite; left: $bg-w-default; }
-}
-.bg.bottomleft {
-    background-image: url('https://i.redd.it/qqn79szv7z961.jpg');
-    border-width: 2px 2px 0px 0px;
-    &.index {   top: $bg-h-opposite;   right: $bg-w-default; }
-    &.about {   top: $bg-h-default;    right: $bg-w-default; }
-    &.test {    top: $bg-h-default;    right: $bg-w-opposite; }
-}
-.bg.bottomright {
-    background-image: url('https://i.redd.it/aer4hb9drh331.png');
-    border-width: 2px 0px 0px 2px;
-    &.index {   top: $bg-h-opposite;   left: $bg-w-opposite; }
-    &.about {   top: $bg-h-default;    left: $bg-w-opposite; }
-    &.test {    top: $bg-h-default;    left: $bg-w-default; }
-}  
 
 
 ///

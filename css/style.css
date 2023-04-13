@@ -70,79 +70,65 @@ html.is-leaving .card {
   opacity: 0;
 }
 
-html.is-leaving.to-index .bg {
+html.is-leaving .bg-mask {
   animation: 0.5s forwards 0.5s border-blink step-start;
+  transition: inset 0.4s ease 0.1s;
 }
-html.is-leaving.to-index .bg.topleft {
+html.is-leaving.to-index .bg-mask.topleft {
   bottom: 20%;
-  right: 15%;
-  transition: bottom 0.4s ease 0.1s, right 0.4s ease 0.1s;
+  right: calc(15% - (100% - 100vw));
 }
-html.is-leaving.to-index .bg.topright {
+html.is-leaving.to-index .bg-mask.topright {
   bottom: 20%;
-  left: 85%;
-  transition: bottom 0.4s ease 0.1s, left 0.4s ease 0.1s;
+  left: calc(100% - (15% - (100% - 100vw)));
 }
-html.is-leaving.to-index .bg.bottomleft {
+html.is-leaving.to-index .bg-mask.bottomleft {
   top: 80%;
-  right: 15%;
-  transition: top 0.4s ease 0.1s, right 0.4s ease 0.1s;
+  right: calc(15% - (100% - 100vw));
 }
-html.is-leaving.to-index .bg.bottomright {
+html.is-leaving.to-index .bg-mask.bottomright {
   top: 80%;
-  left: 85%;
-  transition: top 0.4s ease 0.1s, left 0.4s ease 0.1s;
+  left: calc(100% - (15% - (100% - 100vw)));
+}
+html.is-leaving.to-about .bg-mask.topleft {
+  bottom: 80%;
+  right: calc(15% - (100% - 100vw));
+}
+html.is-leaving.to-about .bg-mask.topright {
+  bottom: 80%;
+  left: calc(100% - (15% - (100% - 100vw)));
+}
+html.is-leaving.to-about .bg-mask.bottomleft {
+  top: 20%;
+  right: calc(15% - (100% - 100vw));
+}
+html.is-leaving.to-about .bg-mask.bottomright {
+  top: 20%;
+  left: calc(100% - (15% - (100% - 100vw)));
+}
+html.is-leaving.to-test .bg-mask.topleft {
+  bottom: 80%;
+  right: calc(100% - (15% - (100% - 100vw)));
+}
+html.is-leaving.to-test .bg-mask.topright {
+  bottom: 80%;
+  left: calc(15% - (100% - 100vw));
+}
+html.is-leaving.to-test .bg-mask.bottomleft {
+  top: 20%;
+  right: calc(100% - (15% - (100% - 100vw)));
+}
+html.is-leaving.to-test .bg-mask.bottomright {
+  top: 20%;
+  left: calc(15% - (100% - 100vw));
 }
 
-html.is-leaving.to-about .bg {
-  animation: 0.5s forwards 0.5s border-blink step-start;
-}
-html.is-leaving.to-about .bg.topleft {
-  bottom: 80%;
-  right: 15%;
-  transition: bottom 0.4s ease 0.1s, right 0.4s ease 0.1s;
-}
-html.is-leaving.to-about .bg.topright {
-  bottom: 80%;
-  left: 85%;
-  transition: bottom 0.4s ease 0.1s, left 0.4s ease 0.1s;
-}
-html.is-leaving.to-about .bg.bottomleft {
-  top: 20%;
-  right: 15%;
-  transition: top 0.4s ease 0.1s, right 0.4s ease 0.1s;
-}
-html.is-leaving.to-about .bg.bottomright {
-  top: 20%;
-  left: 85%;
-  transition: top 0.4s ease 0.1s, left 0.4s ease 0.1s;
-}
-
-html.is-leaving.to-test .bg {
-  animation: 0.5s forwards 0.5s border-blink step-start;
-}
-html.is-leaving.to-test .bg.topleft {
-  bottom: 80%;
-  right: 85%;
-  transition: bottom 0.4s ease 0.1s, right 0.4s ease 0.1s;
-}
-html.is-leaving.to-test .bg.topright {
-  bottom: 80%;
-  left: 15%;
-  transition: bottom 0.4s ease 0.1s, left 0.4s ease 0.1s;
-}
-html.is-leaving.to-test .bg.bottomleft {
-  top: 20%;
-  right: 85%;
-  transition: top 0.4s ease 0.1s, right 0.4s ease 0.1s;
-}
-html.is-leaving.to-test .bg.bottomright {
-  top: 20%;
-  left: 15%;
-  transition: top 0.4s ease 0.1s, left 0.4s ease 0.1s;
+html {
+  width: 100%;
 }
 
 body {
+  width: 100%;
   font-family: "Raleway", Arial, sans-serif;
   background-color: #303030;
   color: #ffffff;
@@ -170,7 +156,6 @@ nav a.current-link {
 }
 
 main {
-  height: 100%;
   margin: 0;
   position: relative;
 }
@@ -190,9 +175,85 @@ h1 {
   flex-wrap: wrap;
 }
 
+.backgrounds {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  inset: 0;
+}
+
+.bg-mask {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  -webkit-mask-image: url("../images/Black.png");
+          mask-image: url("../images/Black.png");
+  -webkit-mask-repeat: repeat;
+          mask-repeat: repeat;
+}
+.bg-mask.topleft {
+  border-width: 0px 2px 2px 0px;
+}
+.bg-mask.topleft.index {
+  bottom: 20%;
+  right: calc(15% - (100% - 100vw));
+}
+.bg-mask.topleft.about {
+  bottom: 80%;
+  right: calc(15% - (100% - 100vw));
+}
+.bg-mask.topleft.test {
+  bottom: 80%;
+  right: calc(100% - (15% - (100% - 100vw)));
+}
+.bg-mask.topright {
+  border-width: 0px 0px 2px 2px;
+}
+.bg-mask.topright.index {
+  bottom: 20%;
+  left: calc(100% - (15% - (100% - 100vw)));
+}
+.bg-mask.topright.about {
+  bottom: 80%;
+  left: calc(100% - (15% - (100% - 100vw)));
+}
+.bg-mask.topright.test {
+  bottom: 80%;
+  left: calc(15% - (100% - 100vw));
+}
+.bg-mask.bottomleft {
+  border-width: 2px 2px 0px 0px;
+}
+.bg-mask.bottomleft.index {
+  top: 80%;
+  right: calc(15% - (100% - 100vw));
+}
+.bg-mask.bottomleft.about {
+  top: 20%;
+  right: calc(15% - (100% - 100vw));
+}
+.bg-mask.bottomleft.test {
+  top: 20%;
+  right: calc(100% - (15% - (100% - 100vw)));
+}
+.bg-mask.bottomright {
+  border-width: 2px 0px 0px 2px;
+}
+.bg-mask.bottomright.index {
+  top: 80%;
+  left: calc(100% - (15% - (100% - 100vw)));
+}
+.bg-mask.bottomright.about {
+  top: 20%;
+  left: calc(100% - (15% - (100% - 100vw)));
+}
+.bg-mask.bottomright.test {
+  top: 20%;
+  left: calc(15% - (100% - 100vw));
+}
+
 .bg {
-  height: 100svh;
-  width: 100svw;
   position: fixed;
   background-position: center center;
   background-repeat: no-repeat;
@@ -201,76 +262,19 @@ h1 {
   opacity: 10%;
   background-attachment: fixed;
   z-index: -10;
-  border: solid rgb(255, 255, 255);
-  transition: bottom 0.25s ease;
+  inset: 0 0 0 0;
 }
-
 .bg.topleft {
   background-image: url("https://i.redd.it/18kn0u61tmfa1.png");
-  border-width: 0px 2px 2px 0px;
 }
-.bg.topleft.index {
-  bottom: 20%;
-  right: 15%;
-}
-.bg.topleft.about {
-  bottom: 80%;
-  right: 15%;
-}
-.bg.topleft.test {
-  bottom: 80%;
-  right: 85%;
-}
-
 .bg.topright {
   background-image: url("https://i.redd.it/vzmwjf4rl5s51.jpg");
-  border-width: 0px 0px 2px 2px;
 }
-.bg.topright.index {
-  bottom: 20%;
-  left: 85%;
-}
-.bg.topright.about {
-  bottom: 80%;
-  left: 85%;
-}
-.bg.topright.test {
-  bottom: 80%;
-  left: 15%;
-}
-
 .bg.bottomleft {
   background-image: url("https://i.redd.it/qqn79szv7z961.jpg");
-  border-width: 2px 2px 0px 0px;
 }
-.bg.bottomleft.index {
-  top: 80%;
-  right: 15%;
-}
-.bg.bottomleft.about {
-  top: 20%;
-  right: 15%;
-}
-.bg.bottomleft.test {
-  top: 20%;
-  right: 85%;
-}
-
 .bg.bottomright {
   background-image: url("https://i.redd.it/aer4hb9drh331.png");
-  border-width: 2px 0px 0px 2px;
-}
-.bg.bottomright.index {
-  top: 80%;
-  left: 85%;
-}
-.bg.bottomright.about {
-  top: 20%;
-  left: 85%;
-}
-.bg.bottomright.test {
-  top: 20%;
-  left: 15%;
 }
 
 .card {
